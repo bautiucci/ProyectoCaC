@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GYM-LIFE</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+             <div class="header-logo">
+                 <a href="../index.html">
+                     <span>
+                         <img src="../img/1.png" alt="Logo GYMLIFE" height="100px" width="100px">
+                     </span>
+                 </a>
+             </div>
+             <ul class="nav-links">
+                 <li> <a href="../index.html#Nosotros">Nosotros</a></li>
+                 <li> <a href="../index.html#Entrena">Entrena</a> </li>
+                 <li> <a href="../index.html#FAQS">Preguntas Frecuentes</a></li>
+                 <li> <a href="../templates/contact.html">Contacto</a></li>
+             </ul>
+         </nav>
+     </header>
+    <main>
+        <section class="contact-page">
+            <h2>CONTACTANOS</h2>
+            <form action="#" method="get" class="flex-form">
+                <div>
+                    <label for="">Nombre</label>
+                    <input type="text" name="firstname" id="firstname" placeholder="Ingrese su nombre" required>
+                </div>
+                <div>
+                    <label for="">Apellido</label>
+                    <input type="text" name="lastname" id="lastname" placeholder="Ingrese su apellido" required>
+                </div>
+                <div>
+                    <label for="">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Ingrese su email" required>
+                </div>
+                <div>
+                    <label for="birthdate">Fecha de nacimiento</label>
+                    <input type="date" name="birthdate" id="birthdate" required>
+                </div>
+                <div>
+                    <label for="">Pais</label>
+                    <select name="country" id="country">
+                        <option value="">Seleccione</option>
+                        <option value="AR">Argentina</option>
+                        <option value="BR">Brasil</option>
+                        <option value="UR">Uruguay</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="">Genero</label>
+                    <select name="gender" id="gender">
+                        <option value="">Seleccione</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Femenino</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+                <input type="submit" value="Enviar" class="btn-envio">
+            </form>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer-links">
+        <a href="#">Terminos y condiciones</a>
+        <a href="#FAQS">Preguntas frecuentes</a>
+        <a href="#">Ayuda</a>
+        </div>
+        <a href="index.html">
+            <span>
+                <img src="../img/1.png" alt="Logo GYMLIFE" height="100px" width="100px">
+            </span>
+        </a>
+    </footer>
+</body>

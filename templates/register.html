@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GYM-LIFE - Registrarse</title>
+    <link rel="icon" href="./img/2.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/a64b299ad0.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style2.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <div class="header-logo">
+                <a href="../index2.html"> 
+                    <span>
+                        <img src="../img/logo.png" alt="Imagen del logo" height="100px" width="100px" class="imagenes">
+                    </span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index2.html#Nosotros">Nosotros</a></li>
+                <li><a href="../index2.html#Entrena">Entrena</a></li>
+                <li><a href="../index2.html#Objetivos">Objetivos</a></li>
+                <li><a href="../index2.html#Empezar">Empezar</a></li>
+                <li><a href="../index2.html#FAQS">FAQS</a></li
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="contact-page">
+            <h2>CONTACTANOS</h2>
+            <form action="#" method="get" class="flex-form">
+                <div>
+                    <label for="">Nombre</label>
+                    <input type="text" name="firstname" id="firstname" placeholder="Ingrese su nombre" required>
+                </div>
+                <div>
+                    <label for="">Apellido</label>
+                    <input type="text" name="lastname" id="lastname" placeholder="Ingrese su apellido" required>
+                </div>
+                <div>
+                    <label for="">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Ingrese su email" required>
+                </div>
+                <div>
+                    <label for="birthdate">Fecha de nacimiento</label>
+                    <input type="date" name="birthdate" id="birthdate" required>
+                </div>
+                <div>
+                    <label for="">Pais</label>
+                    <select name="country" id="country">
+                        <option value="">Seleccione</option>
+                        <option value="AR">Argentina</option>
+                        <option value="BR">Brasil</option>
+                        <option value="UR">Uruguay</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="">Genero</label>
+                    <select name="gender" id="gender">
+                        <option value="">Seleccione</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Femenino</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+                <input type="submit" value="Enviar" class="btn-envio">
+            </form>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="flex-footer">
+            <div class="contactanos">
+                <h4>Contactanos</h4>
+                <UL>
+                    <li>
+                        <h5>Telefono</h5>
+                        <p>221-3456789</p>
+                    </li>
+                    <li>
+                        <h5>Email</h5>
+                        <p>info@gymlife.com</p>
+                    </li>
+                    <li>
+                        <h5>Instagram</h5>
+                        <p>@GYM-LIFE</p>
+                    </li>
+                </UL>
+            </div>
+            <div class="horarios">
+                <h4>Horarios</h4>
+                <UL>
+                    <li>
+                        <h5>Lunes - Viernes</h5>
+                        <p>08:00 - 22:00</p>
+                    </li>
+                    <li>
+                        <h5>Sabados</h5>
+                        <p>10:00 - 22:00 </p>
+                    </li>
+                    <li>
+                        <h5>Domingos</h5>
+                        <p>12:00 - 18:00</p>
+                    </li>
+                </UL>
+            </div>
+            <div class="adicional">
+                <h4>Informacion adicional</h4>
+                <a href="">Terminos y condiciones</a>
+                <a href="">Ayuda</a>
+                <a href="#FAQS">FAQS</a>
+            </div>
+            <div class="map">
+                <h4>Donde estamos</h4>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6542.6357429649415!2d-57.963866351171255!3d-34.923564078147805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e62e3fc93575%3A0x6ffaec3bf616e000!2sPlaza%20Moreno!5e0!3m2!1ses!2sar!4v1715927415473!5m2!1ses!2sar" width="200" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </footer>
+</body>
