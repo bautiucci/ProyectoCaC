@@ -1,6 +1,4 @@
-:root{
 
-}
 *{
     padding: 0;
     margin: 0;
@@ -307,6 +305,9 @@ article {
     border: 5px solid darkslategray;
     border-radius: 20px;
     border-color: yellow;
+}
+.term-button {
+    font-size: 1vw;
 }
 
 @media (max-width: 768px) {
