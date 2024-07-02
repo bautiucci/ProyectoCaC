@@ -196,6 +196,10 @@ article {
     gap: 30px;
     font-size: 2vw;
 }
+#objetives-icons {
+    color: rgb(218, 250, 10);
+    font-size: 3rem;
+}
 .benefict-zone {
     display: flex;
     flex-direction: row-reverse;
@@ -245,7 +249,7 @@ article {
     color: rgb(255, 255, 255);
 }
 .footer {
-    background-color: rgb(51, 49, 49);
+    background-color: rgb(44, 45, 7);
 }
 .flex-footer {
     display: flex;
