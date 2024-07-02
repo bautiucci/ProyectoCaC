@@ -13,7 +13,7 @@ async function fetchData(url, method, data = null) {
         'Content-Type': 'application/json',
         },
         body: data ? JSON.stringify(data) : null, // Si hay datos, los convierte a JSON y los incluye en el cuerpo
-        };
+    };
     try {
         const response = await fetch(url, options); // Realiza la petición fetch
         if (!response.ok) {
@@ -32,16 +32,16 @@ async function showUsers(){
     users.forEach((user, index) => {
     let tr = `<tr>
     
-    <td>${user.apellido}</td>
-    <td>${user.nombre}</td>
-    <td>${user.email}</td>
-    <td>${user.fecha_nacimiento}</td>
-    <td>${user.genero}</td>
-    <td>${user.clave}</td>
-    <td>
-    <button class="btn-cac" onclick='updateMovie(${user.id_usuario})'><i class="fa fa-pencil" ></button></i>
-    <button class="btn-cac" onclick='deleteMovie(${user.id_usuario})'><i class="fa fa-trash" ></button></i>
-    </td>
+        <td>${user.apellido}</td>
+        <td>${user.nombre}</td>
+        <td>${user.email}</td>
+        <td>${user.fecha_nacimiento}</td>
+        <td>${user.genero}</td>
+        <td>${user.clave}</td>
+        <td>
+            <button class="btn-cac" onclick= updateUser(${user.id_usuario})><i class="fa fa-pencil" ></button></i>
+            <button class="btn-cac" onclick= deleteUser(${user.id_usuario})><i class="fa fa-trash" ></button></i>
+        </td>
     </tr>`;
     
     tableUsers.insertAdjacentHTML("beforeend",tr);
@@ -56,10 +56,10 @@ async function saveUser(){
     const idUser = document.querySelector('#id-user').value;
     const apellido = document.querySelector('#lastname').value;
     const nombre = document.querySelector('#firstname').value;
-    const email = document.querySelector('#email').value;
     const fecha_nacimiento = document.querySelector('#birthdate').value;
     const genero = document.querySelector('#gender').value;
     const clave = document.querySelector('#password').value;
+    const email = document.querySelector('#email').value;
     //VALIDACION DE FORMULARIO
     if (!apellido || !nombre || !fecha_nacimiento || !genero|| !clave || !email) {
         Swal.fire({
@@ -74,10 +74,10 @@ async function saveUser(){
     const userData = {
         'firstname': nombre,
         'lastname': apellido,
-        'email': email,
         'birthdate': fecha_nacimiento,
         'gender': genero,
-        'password': clave
+        'password': clave,
+        'email': email
     }; 
     let result = null;
     // Si hay un idMovie, realiza una petición PUT para actualizar la película existente
@@ -97,13 +97,15 @@ async function saveUser(){
         });
     showUsers();
 }
+/** Funcion para usar con el formulario de registro que podra llenar el usuario */
+/** 
 async function agregar_usuario(){
     const apellido = document.querySelector('#lastname').value;
-    const nombre = document.querySelector('#firstname').value;
-    const email = document.querySelector('#email').value;
+    const nombre = document.querySelector('#firstname').value;    
     const fecha_nacimiento = document.querySelector('#birthdate').value;
     const genero = document.querySelector('#gender').value;
     const clave = document.querySelector('#password').value;
+    const email = document.querySelector('#email').value;
     //VALIDACION DE FORMULARIO
     if (!apellido || !nombre || !fecha_nacimiento || !genero|| !clave || !email) {
         Swal.fire({
@@ -118,10 +120,10 @@ async function agregar_usuario(){
     const userData = {
         'firstname': nombre,
         'lastname': apellido,
-        'email': email,
         'birthdate': fecha_nacimiento,
         'gender': genero,
-        'password': clave
+        'password': clave,
+        'email': email
     }; 
     let result = null;
     result = await fetchData(`${BASEURL}/nuevo_usuario`, 'POST', userData);
@@ -134,3 +136,57 @@ async function agregar_usuario(){
         confirmButtonText: 'Cerrar'
         });
 }
+*/
+/**
+* Function que permite eliminar un usuario del array del localstorage
+* de acuedo al indice del mismo
+* @param {number} id posición del array que se va a eliminar
+*/
+function deleteUser(id){
+    Swal.fire({
+        title: "Esta seguro de eliminar la pelicula?",
+        showCancelButton: true,
+        confirmButtonText: "Eliminar",
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                let response = await fetchData(BASEURL+'/eliminar_usuario/'+id, 'DELETE');
+                showUsers();
+                Swal.fire(response, "", "success");
+            }
+        }
+    );
+}
+/**
+* Function que permite cargar el formulario con los datos de la pelicula
+* para su edición
+* @param {number} id Id de la pelicula que se quiere editar
+*/
+async function updateUser(id){
+    //Buscamos en el servidor la pelicula de acuerdo al id
+    let response = await fetchData(BASEURL+'/usuario/'+id, 'GET');
+    const idUser = document.querySelector('#id-user').value;
+    const apellido = document.querySelector('#lastname').value;
+    const nombre = document.querySelector('#firstname').value;
+    const email = document.querySelector('#email').value;
+    const fecha_nacimiento = document.querySelector('#birthdate').value;
+    const genero = document.querySelector('#gender').value;
+    const clave = document.querySelector('#password').value;
+
+    idUser.value = response.id_usuario;
+    apellido.value = response.apellido;
+    nombre.value = response.nombre;
+    email.value = response.email;
+    fecha_nacimiento.value = response.fecha_nacimiento;
+    genero.value = response.genero;
+    clave.value = response.clave;
+
+}
+
+// Escuchar el evento 'DOMContentLoaded' que se dispara cuando el
+// contenido del DOM ha sido completamente cargado y parseado.
+document.addEventListener('DOMContentLoaded',function(){
+    const btnSaveUser = document.querySelector('#btn-save-user');
+    //ASOCIAR UNA FUNCION AL EVENTO CLICK DEL BOTON
+    btnSaveUser.addEventListener('click',saveUser());
+    showUsers();
+    });
